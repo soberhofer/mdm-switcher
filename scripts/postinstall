@@ -21,11 +21,11 @@ def main():
     username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]
     username = [username, ""][username in [u"loginwindow", None, u""]]
     print "Current username is %s" % username
-
+    open('/Library/.OEWSetupDone', 'a').close()
     if float(os.uname()[2][0:2]) <= 16:
-        cmd = ['/usr/bin/profiles', '-I', '-F', profilepath, '-Y', username]
+        cmd = ['/usr/bin/profiles', '-I', '-F', profilepath]
     elif float(os.uname()[2][0:2]) == 17:
-        cmd = ['/usr/bin/profiles', 'install', '-path', profilepath, '-enrolledUser', username]
+        cmd = ['/usr/bin/profiles', 'install', '-path', profilepath]
     else:
         print "Error! Unsupported OS, too new."
         exit(1)

@@ -6,7 +6,7 @@ import subprocess
 def main():
     """Removes MDM profiles and exits with same results."""
 
-    cmd = ['/usr/bin/profiles', '-R', '-p', 'YOUR-MDM-PROFILE-ID-GOES-HERE']
+    cmd = ['/usr/bin/profiles', '-R', '-p', 'com.apple.config.munki.oew.lcl.mdm']
     result = subprocess.call(cmd)
     exit(result)
 
